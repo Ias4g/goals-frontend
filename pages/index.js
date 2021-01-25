@@ -1,14 +1,46 @@
+import React from 'react'
+import Head from 'next/head'
+import Menu from '../components/Menu'
+import Footer from '../components/Footer'
+import {
+    Jumbotron,
+    Container,
+    ListGroup,
+    ListGroupItem,
+    ListGroupItemHeading,
+    ListGroupItemText
+} from 'reactstrap'
+
 function Home({ data }) {
     return (
         <>
-            <h1>My goals</h1>
-            {data.goals.map(goal => (
-                <div key={goal._id}>
-                    <h2>{goal.name}</h2>
-                    <h5>{goal.description}</h5>
-                    <h6>{goal.status}</h6>
-                </div>
-            ))}
+            <Head>
+                <title>Home - My Goals</title>
+            </Head>
+            <Menu />
+            <Jumbotron fluid className="home">
+                <Container>
+                    <h1 className="display-4 text-center title">My goals</h1>
+                    <ListGroup>
+                        {data.goals.map(goal => (
+                            <div key={goal._id}>
+                                <ListGroupItem className="item-list">
+                                    <ListGroupItemHeading>
+                                        {goal.name}
+                                    </ListGroupItemHeading>
+                                    <ListGroupItemText>
+                                        {goal.description}
+                                    </ListGroupItemText>
+                                    <ListGroupItemText>
+                                        {goal.status}
+                                    </ListGroupItemText>
+                                </ListGroupItem>
+                            </div>
+                        ))}
+                    </ListGroup>
+                </Container>
+            </Jumbotron>
+            <Footer />
         </>
     )
 }

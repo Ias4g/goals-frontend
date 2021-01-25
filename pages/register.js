@@ -1,4 +1,17 @@
 import React, { useState } from 'react'
+import Head from 'next/head'
+import Menu from '../components/Menu'
+import Footer from '../components/Footer'
+import {
+    Jumbotron,
+    Container,
+    Button,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    Alert
+} from 'reactstrap'
 
 function Register() {
     const [goal, setGoal] = useState({
@@ -19,6 +32,9 @@ function Register() {
 
     async function getSendForm(e) {
         e.preventDefault()
+
+        setMsg({ formSave: true })
+
         try {
             const result = await fetch('http://localhost:3333/goals', {
                 method: 'POST',
@@ -47,52 +63,67 @@ function Register() {
             setMsg({
                 formSave: false,
                 type: 'error',
-                message: 'Erro ao salver dados'
+                message: 'Erro ao salvar dados'
             })
         }
     }
 
     return (
         <>
-            <h1>Register my goals</h1>
-            <hr />
+            <Head>
+                <title>Register - My Goals</title>
+            </Head>
+            <Menu />
+            <Jumbotron fluid className="form">
+                <Container>
+                    <h1 className="display-4 text-center">Register my goals</h1>
+                    <hr />
 
-            {msg.type === 'error' ? <p>{msg.message}</p> : ""}
-            {msg.type === 'success' ? <p>{msg.message}</p> : ""}
+                    {msg.type === 'error' ? <Alert className="text-center" color="danger">{msg.message}</Alert> : ""}
+                    {msg.type === 'success' ? <Alert className="text-center" color="success">{msg.message}</Alert> : ""}
 
-            <form onSubmit={getSendForm}>
-                <label>Nome</label>
-                <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Insira seu nome"
-                    onChange={getValueInput}
-                />
-                <br />
+                    <Form onSubmit={getSendForm}>
+                        <FormGroup>
+                            <Label for="name">Nome</Label>
+                            <Input
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="Insira seu nome"
+                                onChange={getValueInput}
+                            />
+                        </FormGroup>
 
-                <label>Descrição</label>
-                <input
-                    type="text"
-                    name="description"
-                    id="description"
-                    placeholder="Insira a descrição"
-                    onChange={getValueInput}
-                />
-                <br />
+                        <FormGroup>
+                            <Label for="description">Descrição</Label>
+                            <Input
+                                type="textarea"
+                                name="description"
+                                id="description"
+                                placeholder="Insira sua descrição"
+                                onChange={getValueInput}
+                            />
+                        </FormGroup>
 
-                <label>Status</label>
-                <input
-                    type="text"
-                    name="status"
-                    id="status"
-                    placeholder="Insira o status"
-                    onChange={getValueInput}
-                />
-                <br />
+                        <FormGroup>
+                            <Label for="status">Status</Label>
+                            <Input
+                                type="text"
+                                name="status"
+                                id="status"
+                                placeholder="Insira seu status"
+                                onChange={getValueInput}
+                            />
+                        </FormGroup>
 
-                <button type="submit">Enviar</button>
-            </form>
+                        {msg.formSave
+                            ? <Button type="submit" color="danger" disabled>Enviando...</Button>
+                            : <Button type="submit" outline color="primary">Enviar</Button>
+                        }
+                    </Form>
+                </Container>
+            </Jumbotron>
+            <Footer />
         </>
     )
 }

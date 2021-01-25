@@ -11,8 +11,11 @@
   "author": "Izael silva <izaell.oficial@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "next": "^10.0.5",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
+    "reactstrap": "^8.8.1"
   }
 }
