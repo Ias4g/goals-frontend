@@ -36,7 +36,7 @@ function Register() {
         setMsg({ formSave: true })
 
         try {
-            const result = await fetch('http://localhost:3333/goals', {
+            const result = await fetch('http://192.168.15.11:3333/goals', {
                 method: 'POST',
                 body: JSON.stringify(goal),
                 headers: {

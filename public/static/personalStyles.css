@@ -7,7 +7,7 @@
 
 .home {
     background-color: #171941;
-    padding: 80px 0 150px 0;
+    padding: 100px 0 50px 0;
     margin-bottom: 0rem !important;
 }
 
@@ -17,9 +17,33 @@
 }
 
 .item-list {
-    background-color: #0d345d !important;
-    border-color: #4a0242 !important;
-    color: #fff;
+    /* background-color: #0d345d !important; */
+    background-color: #e5e5e5 !important;
+    /* border-color: #4a0242 !important; */
+    /* border: 5px solid #4a0242; */
+    border-radius: 12px !important;
+    /* color: #fff; */
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.item-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+span {
+    font-size: 8px;
+}
+
+.item-name {
+    margin-right: 10px;
+}
+
+.item-name p {
+    font-size: 10px;
 }
 
 .container-card {
@@ -47,6 +71,38 @@
     margin-left: 0px !important;
 }
 
+/* START ESTILIZAÇÃO DO COMPONENT POPOVER */
+
+.btn-popover {
+    display: flex;
+    color: #333;
+    outline: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.btn-popover:hover {
+    background: rgb(163, 160, 160, 0.3);
+}
+
+div#actions li {
+    list-style: none;
+}
+
+div#actions li .actions {
+    width: 100%;
+    margin: 2px 0;
+    /* border: 1px solid #333; */
+}
+
+div#actions li .actions:hover {
+    opacity: 0.7;
+}
+
+/* END POPOVER */
+
+/* START ESTILIZAÇÃO DO COMPONENT FOOTER */
+
 .footer {
     background-color: #fff;
     display: flex;
@@ -69,3 +125,5 @@
     padding-left: 0.4rem;
     border-left: 1px solid #333;
 }
+
+/* END FOOTER */

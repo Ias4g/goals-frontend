@@ -48,7 +48,7 @@ const Footer = (props) => {
                         </CardBody>
                         <CardFooter className="footer">
                             <p>Feito com&nbsp;<FaHeart size={16} color="#bf38ac" /></p>
-                            <img bottom width="156" src="/assets/logo-goals.svg" alt="Logo Goals" />
+                            <img bottom width="156" src="/assets/logo-02.svg" alt="Logo Goals" />
                         </CardFooter>
                     </Card>
                 </Container>
